@@ -58,7 +58,12 @@ public class User {
     }
 
     // This method is setting up the user's general information
-    public void setGeneralInformation(String firstName, String lastName, String gender, String studentIdentifierNumber) throws Exception {
+    public void setGeneralInformation(GeneralInformation generalInformation ) throws Exception {
+        String firstName = generalInformation.getFirstName();
+        String lastName = generalInformation.getLastName();
+        String gender = generalInformation.getGender();
+        String studentIdentifierNumber = generalInformation.getStudentIdentifierNumber();
+
         // Check if the inputs are empty or blank
         if (firstName == null || firstName.trim().isEmpty()) {
             throw new Exception("First name should not be null, empty, or blank.");
@@ -66,11 +71,9 @@ public class User {
         if (lastName == null || lastName.trim().isEmpty()) {
             throw new Exception("Last name should not be null, empty, or blank.");
         }
-
         if (gender == null || gender.trim().isEmpty()) {
             throw new Exception("Gender should not be null, empty, or blank.");
         }
-
         if (studentIdentifierNumber == null || studentIdentifierNumber.trim().isEmpty()) {
             throw new Exception("Student identifier number should not be null, empty, or blank.");
         }
@@ -81,7 +84,7 @@ public class User {
     public int calculateEnrollmentYear() {
         // This is the user's age calculation
         int currentYears = Year.now().getValue();
-        return currentYears - this.enrollmentYear;
+        return currentYears - schoolIdentifier.getEnrollmentYear();
     }
 
     // This method is used to validate user's email address

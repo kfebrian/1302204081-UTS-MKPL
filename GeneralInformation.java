@@ -6,6 +6,14 @@ public class GeneralInformation {
         private String lastName;
         private String studentIdentifierNumber;
 
+        public GeneralInformation(String firstName, String lastName, String gender, String studentIdentifierNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.studentIdentifierNumber = studentIdentifierNumber;
+        }
+        
+        //Setter
         public void setFirstName(String firstName) {
             this.firstName = firstName;
         }
@@ -20,6 +28,23 @@ public class GeneralInformation {
 
         public void setStudentIdentifierNumber(String studentIdentifierNumber) {
             this.studentIdentifierNumber = studentIdentifierNumber;
+        }
+        // getter methods
+
+        public String getFirstName() {
+            return firstName;
+        }
+
+        public String getLastName() {
+            return lastName;
+        }
+
+        public String getGender() {
+            return gender;
+        }
+
+        public String getStudentIdentifierNumber() {
+            return studentIdentifierNumber;
         }
     }
 
