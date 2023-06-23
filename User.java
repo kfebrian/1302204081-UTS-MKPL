@@ -164,25 +164,23 @@ public class User {
 
         String emailStatus = "", passwordStatus = "";
 
-        if(isValidEmail){
-            emailStatus = "VALID";
-        }else{
-            emailStatus = "INVALID";
-        }
-        if(isStrongPassword){
-            passwordStatus = "STRONG";
-        }else{
-            passwordStatus = "WEAK";
+        emailStatus = isValidEmail ? "VALID" : "INVALID";
+        passwordStatus = isStrongPassword ? "STRONG" : "WEAK";
+
+
+        if (emailStatus.equals("VALID")) {
+            if (passwordStatus.equals("STRONG")) {
+                System.out.println("UPDATE COMPLETE!");
+            } else if (passwordStatus.equals("WEAK")) {
+                System.out.println("PLEASE USE BETTER PASSWORD");
+            }
+        }else if (emailStatus.equals("INVALID")) {
+            if (passwordStatus.equals("STRONG")) {
+                System.out.println("PLEASE CHECK YOUR EMAIL");
+            } else if (passwordStatus.equals("WEAK")) {
+                System.out.println("THIS IS JOKE RIGHT? PLEASE USE VALID EMAIL AND STRONG PASSWORD");
+            }
         }
 
-        if(emailStatus.equals("VALID") && passwordStatus.equals("STRONG")){
-            System.out.println("UPDATE COMPLETE!");
-        }else if(emailStatus.equals("VALID") && passwordStatus.equals("WEAK")){
-            System.out.println("PLEASE USE BETTER PASSWORD");
-        }else if(emailStatus.equals("INVALID") && passwordStatus.equals("STRONG")){
-            System.out.println("PLEASE CHECK YOUR EMAIL");
-        }else if(emailStatus.equals("INVALID") && passwordStatus.equals("WEAK")){
-            System.out.println("THIS IS JOKE RIGHT? PLEASE USE VALID EMAIL AND STRONG PASSWORD");
-        }
     }
 }
