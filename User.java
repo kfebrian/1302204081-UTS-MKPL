@@ -79,26 +79,41 @@ public class User {
         validateUserName(userName);
     }
 
+    private void validateFirstName(String firstName) throws Exception {
+        if (firstName == null || firstName.trim().isEmpty()) {
+            throw new Exception("First name should not be null, empty, or blank.");
+        }
+    }
+
+    private void validateLastName(String lastName) throws Exception {
+        if (lastName == null || lastName.trim().isEmpty()) {
+            throw new Exception("Last name should not be null, empty, or blank.");
+        }
+    }
+
+    private void validateGender(String gender) throws Exception {
+        if (gender == null || gender.trim().isEmpty()) {
+            throw new Exception("Gender should not be null, empty, or blank.");
+        }
+    }
+
+    private void validateStudentIdentifierNumber(String studentIdentifierNumber) throws Exception {
+        if (studentIdentifierNumber == null || studentIdentifierNumber.trim().isEmpty()) {
+            throw new Exception("Student identifier number should not be null, empty, or blank.");
+        }
+    }
+
     // This method is setting up the user's general information
     public void setGeneralInformation(GeneralInformation generalInformation ) throws Exception {
-        String firstName = generalInformation.getFirstName();
+       String firstName = generalInformation.getFirstName();
         String lastName = generalInformation.getLastName();
         String gender = generalInformation.getGender();
         String studentIdentifierNumber = generalInformation.getStudentIdentifierNumber();
 
-        // Check if the inputs are empty or blank
-        if (firstName == null || firstName.trim().isEmpty()) {
-            throw new Exception("First name should not be null, empty, or blank.");
-        }
-        if (lastName == null || lastName.trim().isEmpty()) {
-            throw new Exception("Last name should not be null, empty, or blank.");
-        }
-        if (gender == null || gender.trim().isEmpty()) {
-            throw new Exception("Gender should not be null, empty, or blank.");
-        }
-        if (studentIdentifierNumber == null || studentIdentifierNumber.trim().isEmpty()) {
-            throw new Exception("Student identifier number should not be null, empty, or blank.");
-        }
+        validateFirstName(firstName);
+        validateLastName(lastName);
+        validateGender(gender);
+        validateStudentIdentifierNumber(studentIdentifierNumber);
 
     }
 
