@@ -111,20 +111,18 @@ public class User {
     }
 
     // This method is used to update user's profile
-    public void updateProfile(String firstName, String lastName, String gender, String studentIdentifierNumber,
-                              String programStudy, String faculty, int enrollmentYear, String email,
-                              String password, String userName) throws Exception {
+    public void updateProfile(SchoolIdentifier schoolIdentifier, SchoolAccount schoolAccount, GeneralInformation generalInfomration) throws Exception {
 
-        if(studentIdentifierNumber.length() != 10 || !StringUtils.isNumeric(studentIdentifierNumber)){
+        if(generalInformation.getStudentIdentifierNumber().length() != 10 || !StringUtils.isNumeric(generalInformation.getStudentIdentifierNumber().length())){
             throw new Exception("Input is not valid.");
         }
 
-        boolean isValidEmail = isValidEmail(email);
-        boolean isStrongPassword = isStrongPassword(password);
+        boolean isValidEmail = isValidEmail(schoolAccount.getEmail());
+        boolean isStrongPassword = isStrongPassword(schoolAccount.getPassword());
 
-        this.setSchoolIdentifier(programStudy, faculty, enrollmentYear);
-        this.setSchoolAccount(email, password, userName);
-        this.setGeneralInformation(firstName, lastName, gender, studentIdentifierNumber);
+        this.setSchoolIdentifier(schoolIdentifier);
+        this.setSchoolAccount(schoolAccount);
+        this.setGeneralInformation(generalInformation);
         int calculateYear = this.calculateEnrollmentYear();
 
         String emailStatus = "", passwordStatus = "";
