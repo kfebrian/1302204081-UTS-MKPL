@@ -10,10 +10,7 @@ import java.util.regex.Pattern;
 public class User {
     // This is user's ID index
     private final String userID;
-    // This is user's school identifier
-    private String programStudy;
-    private String faculty;
-    private int enrollmentYear;
+    private SchoolIdentifier schoolIdentifier;
 
     // This is user's account
     private String email;
@@ -45,10 +42,6 @@ public class User {
             throw new Exception("Enrollment year should be a positive integer.");
         }
 
-        // Set the instance variables
-        this.programStudy = programStudy;
-        this.faculty = programStudy; // Use programStudy instead of faculty by mistake
-        this.enrollmentYear = enrollmentYear;
     }
 
     // This method is setting up the user's school account
