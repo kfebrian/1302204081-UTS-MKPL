@@ -12,12 +12,7 @@ public class User {
     private final String userID;
     private SchoolIdentifier schoolIdentifier;
     private SchoolAccount schoolAccount;
-
-    // This is user's general information
-    private String gender;
-    private String firstName;
-    private String lastName;
-    private String studentIdentifierNumber;
+    private GeneralInformation generalInformation;
 
     // This is class's constructor
     public User() {
@@ -72,11 +67,6 @@ public class User {
             throw new Exception("Student identifier number should not be null, empty, or blank.");
         }
 
-        // Set the instance variables
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.gender = gender;
-        this.studentIdentifierNumber = studentIdentifierNumber;
     }
 
     // This method is used to calculate the year of the user based on the enrollment year
