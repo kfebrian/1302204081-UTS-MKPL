@@ -36,7 +36,11 @@ public class User {
     }
 
     // This method is setting up the user's school account
-    public void setSchoolAccount(String email, String password, String userName) throws Exception {
+    public void setSchoolAccount(SchoolAccount schoolAccount) throws Exception {
+        String email = schoolAccount.getEmail();
+        String password = schoolAccount.getPassword();
+        String userName = schoolAccount.getUserName();
+
         // Check if the inputs are empty or blank
         if (email == null || email.trim().isEmpty()) {
             throw new Exception("Email should not be null, empty, or blank.");

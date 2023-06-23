@@ -3,7 +3,7 @@ public class SchoolIdentifier {
     private String programStudy;
     private String faculty;
     private int enrollmentYear;
-    
+
      public void setProgramStudy(String programStudy) {
             this.programStudy = programStudy;
         }
@@ -19,4 +19,5 @@ public class SchoolIdentifier {
         public int getEnrollmentYear() {
             return enrollmentYear;
         }
+        
 }
