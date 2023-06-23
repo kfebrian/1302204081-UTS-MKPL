@@ -19,7 +19,23 @@ public class User {
         // This is initiate the unique ID
         this.userID = UUID.randomUUID().toString();
     }
+    private void validateProgramStudy(String programStudy) throws Exception {
+    if (programStudy == null || programStudy.trim().isEmpty()) {
+        throw new Exception("Program study should not be null, empty, or blank.");
+    }
+    }
 
+    private void validateFaculty(String faculty) throws Exception {
+        if (faculty == null || faculty.trim().isEmpty()) {
+            throw new Exception("Faculty should not be null, empty, or blank.");
+        }
+    }
+
+    private void validateEnrollmentYear(int enrollmentYear) throws Exception {
+        if (enrollmentYear <= 0 || enrollmentYear >= Integer.MAX_VALUE) {
+            throw new Exception("Enrollment year should be a positive integer.");
+        }
+    }
     // This method is setting up the user's school identifier
     public void setSchoolIdentifier(SchoolIdentifier schoolIdentifier) throws Exception {
         String programStudy = schoolIdentifier.getProgramStudy();
@@ -27,15 +43,9 @@ public class User {
         int enrollmentYear = schoolIdentifier.getEnrollmentYear();
 
         // Check if the inputs are empty or blank
-        if (programStudy == null || programStudy.trim().isEmpty()) {
-            throw new Exception("Program study should not be null, empty, or blank.");
-        }
-        if (faculty == null || faculty.trim().isEmpty()) {
-            throw new Exception("Faculty should not be null, empty, or blank.");
-        }
-        if (enrollmentYear <= 0 || enrollmentYear >= Integer.MAX_VALUE) {
-            throw new Exception("Enrollment year should be a positive integer.");
-        }
+        validateProgramStudy(programStudy);
+        validateFaculty(faculty);
+        validateEnrollmentYear(enrollmentYear);
 
     }
 
