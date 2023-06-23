@@ -21,7 +21,11 @@ public class User {
     }
 
     // This method is setting up the user's school identifier
-    public void setSchoolIdentifier(String programStudy, String faculty, int enrollmentYear) throws Exception {
+    public void setSchoolIdentifier(SchoolIdentifier schoolIdentifier) throws Exception {
+        String programStudy = schoolIdentifier.getProgramStudy();
+        String faculty = schoolIdentifier.getFaculty();
+        int enrollmentYear = schoolIdentifier.getEnrollmentYear();
+
         // Check if the inputs are empty or blank
         if (programStudy == null || programStudy.trim().isEmpty()) {
             throw new Exception("Program study should not be null, empty, or blank.");

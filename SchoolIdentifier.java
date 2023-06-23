@@ -4,6 +4,14 @@ public class SchoolIdentifier {
     private String faculty;
     private int enrollmentYear;
 
+    public SchoolIdentifier(String programStudy, String faculty, int enrollmentYear) {
+        this.programStudy = programStudy;
+        this.faculty = faculty;
+        this.enrollmentYear = enrollmentYear;
+    }
+
+        // Setter
+
      public void setProgramStudy(String programStudy) {
             this.programStudy = programStudy;
         }
@@ -16,8 +24,18 @@ public class SchoolIdentifier {
             this.enrollmentYear = enrollmentYear;
         }
 
-        public int getEnrollmentYear() {
-            return enrollmentYear;
-        }
+        // getter methods
+
+    public String getProgramStudy() {
+        return programStudy;
+    }
+
+    public String getFaculty() {
+        return faculty;
+    }
+
+    public int getEnrollmentYear() {
+        return enrollmentYear;
+    }
         
 }
