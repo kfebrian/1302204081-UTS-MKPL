@@ -49,6 +49,24 @@ public class User {
 
     }
 
+    private void validateEmail(String email) throws Exception {
+        if (email == null || email.trim().isEmpty()) {
+            throw new Exception("Email should not be null, empty, or blank.");
+        }
+    }
+
+    private void validatePassword(String password) throws Exception {
+        if (password == null || password.trim().isEmpty()) {
+            throw new Exception("Password should not be null, empty, or blank.");
+        }
+    }
+
+    private void validateUserName(String userName) throws Exception {
+        if (userName == null || userName.trim().isEmpty()) {
+            throw new Exception("User name should not be null, empty, or blank.");
+        }
+    }
+
     // This method is setting up the user's school account
     public void setSchoolAccount(SchoolAccount schoolAccount) throws Exception {
         String email = schoolAccount.getEmail();
@@ -56,15 +74,9 @@ public class User {
         String userName = schoolAccount.getUserName();
 
         // Check if the inputs are empty or blank
-        if (email == null || email.trim().isEmpty()) {
-            throw new Exception("Email should not be null, empty, or blank.");
-        }
-        if (password == null || password.trim().isEmpty()) {
-            throw new Exception("Password should not be null, empty, or blank.");
-        }
-        if (userName == null || userName.trim().isEmpty()) {
-            throw new Exception("User name should not be null, empty, or blank.");
-        }
+        validateEmail(email);
+        validatePassword(password);
+        validateUserName(userName);
     }
 
     // This method is setting up the user's general information
