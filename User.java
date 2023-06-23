@@ -11,11 +11,7 @@ public class User {
     // This is user's ID index
     private final String userID;
     private SchoolIdentifier schoolIdentifier;
-
-    // This is user's account
-    private String email;
-    private String password;
-    private String userName;
+    private SchoolAccount schoolAccount;
 
     // This is user's general information
     private String gender;
@@ -56,11 +52,6 @@ public class User {
         if (userName == null || userName.trim().isEmpty()) {
             throw new Exception("User name should not be null, empty, or blank.");
         }
-
-        // Set the instance variables
-        this.email = email;
-        this.password = password;
-        this.userName = userName;
     }
 
     // This method is setting up the user's general information
